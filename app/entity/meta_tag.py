@@ -1,0 +1,1 @@
+# *A class to group Tag (e.g. tags pertaining to pricing)*

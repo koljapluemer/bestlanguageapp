@@ -1,0 +1,1 @@
+# *a fairly open class to describe how a tool is, what it can do, etc.*

@@ -1,3 +1,2 @@
-from django.db import models
-
-# Create your models here.
+# should NOT contain actual models, since we're using entities/
+# only pulls in models so django can use them
