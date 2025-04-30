@@ -6,4 +6,5 @@ def list_tools(request):
     List all tools.
     """
     tools = get_all_tools()
+    print("Tools:", tools)  # Debug print
     return render(request, 'admin/tool/list.html', {'tools': tools})

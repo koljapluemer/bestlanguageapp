@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}Tools - Admin{% endblock %}
+{% block title %}Tools{% endblock %}
 
 {% block content %}
 <section class="section">
     <div class="container">
         <h1 class="title">Tools</h1>
         
+        {% if tools %}
         <div class="table-container">
             <table class="table is-fullwidth is-striped">
                 <thead>
@@ -14,7 +15,6 @@
                         <th>Name</th>
                         <th>Description</th>
                         <th>Link</th>
-                        <th>Created</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -31,16 +31,15 @@
                                 <span>Visit</span>
                             </a>
                         </td>
-                        <td>{{ tool.created_at|date:"Y-m-d" }}</td>
                         <td>
                             <div class="buttons">
-                                <a href="{% url 'admin:tool:edit' tool.id %}" class="button is-small is-info">
+                                <a href="{% url 'admin.tool:edit' tool.id %}" class="button is-small is-info">
                                     <span class="icon">
                                         <i class="fas fa-edit"></i>
                                     </span>
                                     <span>Edit</span>
                                 </a>
-                                <a href="{% url 'admin:tool:delete' tool.id %}" class="button is-small is-danger">
+                                <a href="{% url 'admin.tool:delete' tool.id %}" class="button is-small is-danger">
                                     <span class="icon">
                                         <i class="fas fa-trash"></i>
                                     </span>
@@ -49,17 +48,18 @@
                             </div>
                         </td>
                     </tr>
-                    {% empty %}
-                    <tr>
-                        <td colspan="5" class="has-text-centered">No tools found.</td>
-                    </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
+        {% else %}
+        <div class="notification is-info">
+            No tools found in the database. Would you like to <a href="{% url 'admin.tool:create' %}">create one</a>?
+        </div>
+        {% endif %}
 
         <div class="mt-4">
-            <a href="{% url 'admin:tool:create' %}" class="button is-primary">
+            <a href="{% url 'admin.tool:create' %}" class="button is-primary">
                 <span class="icon">
                     <i class="fas fa-plus"></i>
                 </span>
