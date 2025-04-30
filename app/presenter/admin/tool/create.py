@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from app.interactor.tool.create_tool import create_tool
 
-def create_tool(request):
+def handle_create_tool(request):
     """
-    Create a new tool.
+    Handle the creation of a new tool.
     """
     if request.method == 'POST':
         try:
