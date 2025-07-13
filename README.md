@@ -1,5 +1,9 @@
 # Best Language App
 
+
+> [!NOTE]  
+> *Archived Prototype. I'll come back to it in the future.*
+
 The website to find a language learning app fitting for *you*.
 
 *Very, very work in progress.*
